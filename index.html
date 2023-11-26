@@ -1,16 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
     <script src="https://kit.fontawesome.com/948e5530ba.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.min.css">
-    
+
     <link rel="stylesheet" href="./style.css">
+
+    <title>Document</title>
 </head>
+
 <body>
+
+    <div class="main">
+
+        <div class="addEvent" id="addEvent">
+            <div class="btns">
+                <button onclick="hideEvent()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <p>Save</p>
+            </div>
+            <h1>Add title</h1>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div>
+                        <p>Events</p>
+                        <p>user@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        All-day
+                    </div>
+                </div>
+
+                <div class="start">
+                    <p>Sun,Nov 26, 2023</p>
+                    <p>1:00 AM</p>
+                </div>
+
+                <div class="end">
+                    <p>Sun,Nov 26, 2023</p>
+                    <p>1:00 AM</p>
+                </div>
+
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                    <div>
+                        Indian Standard Time
+                    </div>
+                </div>
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </div>
+                    <div>
+                        Does not repeat
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div>
+                        Add people
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div>
+                        Add video Conferencing
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        Add location
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+                    <div class="bell">
+                        <p>1 day before</p>
+                        <p><i class="fa-solid fa-xmark"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div>
+                        Default Color
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-grip"></i>
+                    </div>
+                    <div>
+                        Add Description
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addEvent1">
+                    <div>
+                        <i class="fa-solid fa-paperclip"></i>
+                    </div>
+                    <div>
+                        Add attachement
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="addTask" id="addTask">
+            <div class="btns">
+                <button onclick="hideTask()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <p>Save</p>
+            </div>
+            <h1>Add title</h1>
+            <div class="border">
+                <div class="addTask1">
+                    <div>
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+                    <div>
+                        <p>Tasks</p>
+                        <p>user@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border">
+                <div class="addTask1">
+                    <div>
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        All-day
+                    </div>
+                </div>
+                <div class="start">
+                    <p>Sun,Nov 26, 2023</p>
+                    <p>1:00 AM</p>
+                </div>
+                <div class="addTask1">
+                    <div>
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </div>
+                    <div>
+                        Does not repeat
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <nav class="navbar">
+                <div class="leftSide">
+                    <i class="hamburgerLogo fa fa-bars" id="hamburgerLogo" style="font-size: 1.4rem;"></i>
+                    <img src="./Images/calendarLogo.png" style="width: 48px;">
+                    <p class="calendarText">Calendar</p>
+                    <p class="todayBtn">Today</p>
+                    <div class="arrows">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <p class="currentdateandday">November 2023</p>
+                    <div>
+                        <button class="calendarDropDown" onclick="mobCal()">
+                            November
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+
+                    </div>
+                </div>
+                <div class="rightSide">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p class="currentDate">Day</p>
+                    <i class="fa-solid fa-question"></i>
+                    <i class="fa-solid fa-gear"></i>
+                    <div class="select-menu">
+                        <div class="select-btn">
+                            <span class="sBtn-text">Month</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul class="options">
+                            <li class="option" id="dayOption">
+                                <span class="option-text">Day</span>
+                                <p>D</p>
+                            </li>
+                            <li class="option" id="weekOption">
+                                <span class="option-text">Week</span>
+                                <p>W</p>
+                            </li>
+                            <li class="option" id="monthOption">
+                                <span class="option-text">Month</span>
+                                <p>M</p>
+                            </li>
+                            <li class="option" id="yearOption">
+                                <span class="option-text">Year</span>
+                                <p>Y</p>
+                            </li>
+                            <li class="option" id="scheduleOption">
+                                <span class="option-text">Schedule</span>
+                                <p>A</p>
+                            </li>
+                            <li class="option" id="fourDaysOption">
+                                <span class="option-text">4 days</span>
+                                <p>X</p>
+                            </li>
+                            <hr>
+                            <li class="checkmarks">
+                                <i class="fa-solid fa-check"></i>
+                                <p style="color: #9c9c9c;">Show weekends</p>
+                            </li>
+                            <li class="checkmarks">
+                                <i class="fa-solid fa-check"></i>
+                                <p>Show declined events</p>
+                            </li>
+                            <li class="checkmarks">
+                                <i class="fa-solid fa-check"></i>
+                                <p>Show completed tasks</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="twoBtnContainer">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        <i class="fa-solid fa-list-check"></i>
+
+                    </div>
+                    <i class="fa-solid fa-mobile-button"></i>
+                    <div class="user">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="calendar-container" id="calendarMobile">
+                <!-- Insert Calendar here -->
+            </div>
+
+
+
+            <main class="main-container">
+                <div class="sidebar">
+                    <button class="createBtn" id="createTaskOrEvent">
+                        <svg width="36" height="36" viewBox="0 0 36 36"><path fill="#34A853" d="M16 16v14h4V20z"></path><path fill="#4285F4" d="M30 16H20l-4 4h14z"></path><path fill="#FBBC05" d="M6 16v4h10l4-4z"></path><path fill="#EA4335" d="M20 16V6h-4v14z"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+                        Create
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="createEventAndTaskContainer" id="createEventAndTaskContainer">
+                        <p id="createEvent" style="font-size: 1rem;">Event</p>
+                        <p id="createTask" style="font-size: 1rem;">Task</p>
+                    </div>
+                    <div class="calendar-container" id="calendar">
+                        <!-- Insert Calendar here -->
+                    </div>
+                    <div class="search-container">
+                        <i class="fa-solid fa-user-group"></i>
+                        <input type="text" id="searchpeople" placeholder="Search for people">
+                    </div>
+                    <div class="calendarsDropDownButtons" id="myCalendarBtn">
+                        <p>My calendars</p>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="calendarDropDownList" id="calendardropdownList">
+                        <span class="list">
+                            <input type="checkbox" id="list1">
+                            <label for="list1">Do this</label>
+                        </span>
+                        <span class="list">
+                            <input type="checkbox" id="list2">
+                            <label for="list2">Water the plants</label>
+                        </span>
+                    </div>
+                    <div class="calendarsDropDownButtons" id="otherCalendarBtn">
+                        <p>Other calendars</p>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="calendarDropDownList" id="otherCalenders">
+                        <span class="list">
+                            <input type="checkbox" id="otherlist1">
+                            <label for="otherlist1">Do this</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="midContainer">
+                    <div id="eventOfDay"></div>
+                    <div class="dec" id="dec">
+                        <div class="events1">
+                            <span>
+                                <p>Fri</p>
+                                <pre>25</pre>
+                            </span>
+                            <div>
+                                <button onclick="addEvent()">
+                                    <p style="font-size:1rem;">Nothing planned. Tap to create.</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="events">
+                            <span>
+                                <p>Mon</p>
+                                <pre>27</pre>
+                            </span>
+                            <div>
+                                Guru Nanak Jayanti
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./Images/WhatsApp Image 2023-11-24 at 1.25.29 AM.jpeg">
+                        </div>
+                        <div class="noEvents">
+                            <p>Dec 3-9</p>
+                            <p>Dec 10-16</p>
+                            <p>Dec 17-23</p>
+                            <p>Dec 24-30</p>
+                        </div>
+                        <div class="events">
+                            <span>
+                                <p>Sun</p>
+                                <pre>24</pre>
+                            </span>
+                            <div>
+                                Christmas Eve
+                            </div>
+                        </div>
+                        <div class="events">
+                            <span>
+                                <p>Mon</p>
+                                <pre>25</pre>
+                            </span>
+                            <div>
+                                Christmas
+                            </div>
+                        </div>
+                        <div class="noEvents">
+                            <p>Dec 31, 2023 - Jan 6, 2024</p>
+                        </div>
+                        <div>
+                            <img src="./Images//WhatsApp Image 2023-11-24 at 10.51.13 PM.jpeg">
+                        </div>
+                        <div class="events">
+                            <span>
+                                <p>Mon</p>
+                                <pre>1</pre>
+                            </span>
+                            <div>
+                                New Year's Day
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mobileBtnsCont">
+                        <div>
+                            Out of office
+                            <button>
+                                <i class="ri-calendar-close-fill"></i>
+                            </button>
+                        </div>
+                        <div>
+                            Working Location
+                            <button>
+                                <i class="ri-map-pin-line"></i>
+
+                        </div>
+                        <div>
+                            Task
+
+                            <button id="addBtn" onclick="addTask()">
+                                <i class="ri-task-line"></i>
+                            </button>
+                        </div>
+                        <div>
+                            Event
+                            <button id="addBtn" onclick="addEvent()">
+                                <i class="ri-calendar-event-fill"></i>
+                            </button>
+                            </button>
+                        </div>
+                        <div class="add-newBtn fa-solid fa-plus"></div>
+                    </div>
+                </div>
+
+                <div class="plugins">
+                    <img src="./Images/googleKeep.png">
+                    <img src="./Images/googleTasks.png">
+                    <img src="./Images/contactsLogo.png">
+                    <img src="./Images/googleMaps.png">
+                    <hr style="width: 80%; color: #333; margin: 0 auto;">
+                    <i class="fa-solid fa-plus" style="margin: 0 auto;"></i>
+                </div>
+            </main>
+
+
+
+            <div class="sidebarmobileview" id="sidebarmobileView">
+
+                <div class="topLogoContainer">
+                    <img src="./Images/google-logo.png">
+                    <p>Calendar</p>
+                </div>
+
+                <div class="calendarViews">
+                    <span id="scheduleView">
+                        <i class="ri-archive-drawer-line"></i>
+                        Schedule
+                    </span>
+                    <span id="dayView">
+                        <i class="ri-archive-drawer-line"></i>
+                        Day
+                    </span>
+                    <span id="threeDaysView">
+                        <i class="ri-archive-drawer-line"></i>
+                        3 days
+                    </span>
+                    <span id="weekView">
+                        <i class="ri-archive-drawer-line"></i>
+                        Week
+                    </span>
+                    <span id="monthView">
+                        <i class="ri-archive-drawer-line"></i>
+                        Month
+                    </span>
+                </div>
+
+                <hr style="width: 100%">
+
+                <span class="refreshContainer">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    Refresh
+                </span>
+
+                <hr style="width: 100%">
+
+                <div class="accountsAndTask">
+                    <div class="accountHeader">
+                        <i class="fa-regular fa-user"></i>
+                        username@gmail.com
+                    </div>
+                    <span class="user1events">
+                        <input type="checkbox" id="user1eventcheck">
+                        <label for="user1eventcheck">Events</label>
+                    </span>
+                    <span class="user1tasks">
+                        <input type="checkbox" id="user1taskcheck">
+                        <label for="user1taskcheck">Tasks</label>
+                    </span>
+                </div>
+
+                <hr style="width: 80%; margin-left: auto">
+
+                <span class="birthdays">
+                    <input type="checkbox" id="birthdaycheck">
+                    <label for="birthdaycheck">Birthdays</label>
+                </span>
+
+                <span class="holidays">
+                    <input type="checkbox" id="holidaycheck">
+                    <label for="holidaycheck">Holidays</label>
+                </span>
+
+                <hr style="width: 100%">
+
+                <span class="bottomConfigs">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </span>
+
+                <span class="bottomConfigs">
+                    <i class="fa-solid fa-question"></i>
+                    Help & feedback
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
     <script src="./index.js"></script>
+
 </body>
+
 </html>
